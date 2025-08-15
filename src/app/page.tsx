@@ -1,18 +1,23 @@
-import Image from "next/image";
+// src/app/page.tsx
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div>
-      <header>
-        <h1>Infoweb - Atividade 1 do 2o bimestre</h1>
-      </header>
-      <main>
-        <h2>Atividade 1 do 2o bimestre com hook reducer e shadcnui</h2>
-      </main>
-      <footer>
-        <p>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</p>
-        <p><a href="https://fsf.org/">Copyright (C) 2007 Free Software Foundation, Inc.</a></p>
-      </footer>
-    </div>
-  );
+    <main className="flex flex-col items-center justify-center min-h-screen space-y-6">
+      <h1 className="text-3xl font-bold">Gerenciador de Tarefas</h1>
+      <p className="text-lg text-muted-foreground">
+        App feito para a atividade de Hooks + Reducer com Next.js.
+      </p>
+
+      <div className="flex gap-4">
+        <Link href="/tarefas">
+          <Button>Ver Tarefas</Button>
+        </Link>
+        <Link href="/tarefas/nova">
+          <Button variant="outline">Nova Tarefa</Button>
+        </Link>
+      </div>
+    </main>
+  )
 }

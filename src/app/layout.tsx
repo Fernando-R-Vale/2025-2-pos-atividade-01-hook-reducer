@@ -1,34 +1,18 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "./globals.css"
+import { TaskProvider } from "@/lib/TaskContext"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+export const metadata = {
+  title: "Gerenciador de Tarefas",
+}
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Infoweb-Atividade",
-  description: "Atividade 1 do 2o bimestre com hook reducer e shadcnui",
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="pt-BR">
+      <body>
+        <TaskProvider>
+          <div className="p-6 max-w-3xl mx-auto">{children}</div>
+        </TaskProvider>
       </body>
     </html>
-  );
+  )
 }
